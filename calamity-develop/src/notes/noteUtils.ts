@@ -1,14 +1,16 @@
 
-import { Note, NoteId } from './types'
+import { Note } from './types'
 
 
-export function createNote(a: string): void {
+export function createNote(): Note {
 
-    const Note = {
+    const note = {
         id: crypto.randomUUID(),
         content: "",
         updatedAt: Date.now()
     }
+
+    return note;
 
 }
 

@@ -8,7 +8,14 @@ Build an Obsidian-style notepad with pop-out windows, and learn **TypeScript**, 
 - **Read the linked docs before you write the code.** The docs are the lesson, and the step is the exercise.
 - Answer the "Check yourself" questions at the end of each phase before moving on. If you can't, re-read the docs.
 - Commit after every step or two (`git add` + `git commit`). Small commits make it easy to undo experiments.
-- When you're stuck, ask Claude for a **"hint only"** or to **"explain this error"**. When you finish a phase, ask it to **"review my Phase N"**.
+- Use the **`/tutor`** skill (`.claude/skills/tutor/SKILL.md` at the repo root) for help:
+  - `/tutor`: where you are and what the next step teaches.
+  - `/tutor hint`: a nudge. Run it again for a bigger hint.
+  - `/tutor explain <error or concept>`: why something happens.
+  - `/tutor review phase N` or `/tutor review <file>`: feedback on your code.
+  - `/tutor quiz <topic>`: check that a concept stuck.
+  - `/tutor answer`: answers your open questions in `QUESTIONS.md`.
+  - Say "just write it" when you want Claude to skip tutoring for one request.
 
 ## Your stack (as scaffolded)
 
@@ -60,16 +67,16 @@ React 19, TypeScript 6, Vite 8, Tauri 2.
   📖 [Everyday Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html), [Object Types](https://www.typescriptlang.org/docs/handbook/2/objects.html)
 - [ x] Create `src/notes/types.ts` and export `NoteId` and `Note` from it. Decide whether `title` should be **stored** or **derived** from the content. You'll derive the title from the first line, so consider removing it from the type. Storing data you can derive leads to bugs where the two disagree.
   📖 [Modules](https://www.typescriptlang.org/docs/handbook/2/modules.html), [Choosing the State Structure → "Avoid redundant state"](https://react.dev/learn/choosing-the-state-structure)
-- [ ] Create `src/notes/noteUtils.ts` with these pure functions, each with typed parameters and return values:
+- [ x] Create `src/notes/noteUtils.ts` with these pure functions, each with typed parameters and return values:
   - `createNote()`: makes a new empty note. Use `crypto.randomUUID()` for the id and `Date.now()` for the timestamp.
   - `deriveTitle(content)`: the first non-empty line, trimmed, with any leading `#` removed. Falls back to `"Untitled"`.
   - `wordCount(text)` and `charCount(text)`.
   📖 [More on Functions](https://www.typescriptlang.org/docs/handbook/2/functions.html), [crypto.randomUUID](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/randomUUID), [String methods (split, trim, startsWith…)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-- [ ] Add a `SaveStatus` type that can only be `"idle"`, `"saving"`, `"saved"`, or `"error"`. You'll use it in Phase 3.
+- [ x] Add a `SaveStatus` type that can only be `"idle"`, `"saving"`, `"saved"`, or `"error"`. You'll use it in Phase 3.
   📖 [Literal Types (in Everyday Types)](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types), [Narrowing](https://www.typescriptlang.org/docs/handbook/2/narrowing.html)
-- [ ] Install Vitest and add a `"test"` script to `package.json`. Write tests for `deriveTitle` and `wordCount`, covering edge cases: an empty string, only whitespace, several spaces in a row, `"# My heading"`, and leading blank lines.
+- [x ] Install Vitest and add a `"test"` script to `package.json`. Write tests for `deriveTitle` and `wordCount`, covering edge cases: an empty string, only whitespace, several spaces in a row, `"# My heading"`, and leading blank lines.
   📖 [Vitest: Getting Started](https://vitest.dev/guide/)
-- [ ] Run `npx tsc --noEmit` and fix any type errors it reports.
+- [ x] Run `npx tsc --noEmit` and fix any type errors it reports.
 
 **Done when:** `npm test` passes and `Basepad.tsx` no longer contains type definitions.
 

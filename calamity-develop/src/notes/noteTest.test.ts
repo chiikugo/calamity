@@ -3,7 +3,7 @@ import { createNote, deriveTitle, wordCount, charCount } from './noteUtils';
 
 
 test("making a dummy note", () => {
-    const dummy = createNote("hello");
+    const dummy = createNote();
 
     console.log(dummy);
 });
