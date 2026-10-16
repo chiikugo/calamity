@@ -90,18 +90,18 @@ React 19, TypeScript 6, Vite 8, Tauri 2.
 
 **Goal:** A distraction-free, full-window editor with a live word count.
 
-- [ ] Read the core React lessons.
+- [ x] Read the core React lessons.
   📖 [Your First Component](https://react.dev/learn/your-first-component), [Writing Markup with JSX](https://react.dev/learn/writing-markup-with-jsx), [Passing Props](https://react.dev/learn/passing-props-to-a-component), [Responding to Events](https://react.dev/learn/responding-to-events), [State: A Component's Memory](https://react.dev/learn/state-a-components-memory), [Using TypeScript with React](https://react.dev/learn/typescript)
 - [ ] Make `Basepad` return a `<textarea>`, and render `<Basepad />` from `App` in place of the old template.
-- [ ] Make the textarea a **controlled input**: its text lives in `useState`, and it's wired up with `value` and `onChange`.
+- [ x] Make the textarea a **controlled input**: its text lives in `useState`, and it's wired up with `value` and `onChange`.
   📖 [`<textarea>` reference → "Controlling a text area with a state variable"](https://react.dev/reference/react-dom/components/textarea)
-- [ ] **Lift the state up.** `App` owns the current `Note`. `Basepad` receives `content` and an `onChange` callback as props. Type the props with an interface.
+- [ x] **Lift the state up.** `App` owns the current `Note`. `Basepad` receives `content` and an `onChange` callback as props. Type the props with an interface.
   📖 [Sharing State Between Components](https://react.dev/learn/sharing-state-between-components), [Thinking in React](https://react.dev/learn/thinking-in-react)
-- [ ] Build a `StatusBar` component that receives the content as a prop and shows words and characters, using your Phase 1 helpers. Don't keep the counts in state. Calculate them during render.
+- [ x] Build a `StatusBar` component that receives the content as a prop and shows words and characters, using your Phase 1 helpers. Don't keep the counts in state. Calculate them during render.
   📖 [You Might Not Need an Effect → "Updating state based on props or state"](https://react.dev/learn/you-might-not-need-an-effect)
-- [ ] Layout: the editor fills the window and the status bar stays at the bottom. Use a flexbox column at full viewport height. Remove the textarea's border, outline, and resize handle.
+- [ x] Layout: the editor fills the window and the status bar stays at the bottom. Use a flexbox column at full viewport height. Remove the textarea's border, outline, and resize handle.
   📖 [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-- [ ] Theme: define your colors (background, text, muted text, accent) as CSS custom properties on `:root`, using a dark Obsidian-like palette.
+- [] Theme: define your colors (background, text, muted text, accent) as CSS custom properties on `:root`, using a dark Obsidian-like palette.
   📖 [Using CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
 - [ ] Readability: limit the text column to about `70ch` wide, center it, and give it a comfortable line height. This is Obsidian's "readable line length" setting.
 - [ ] Add `autoFocus` and a placeholder, so you can start typing as soon as the app opens.

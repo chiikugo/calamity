@@ -1,0 +1,71 @@
+:root {
+    --bg-color: rgba(17, 17, 17, 0.85);
+    --text-color: #FFFFFF;
+    --accent-color: #004953;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+
+body {
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    accent-color: var(--accent-color);
+
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 1rem;
+    box-sizing: border-box;
+
+}
+
+
+.textareaone {
+    border: none;
+    outline: none;
+    resize: none;
+    flex: 1;
+    color: inherit;
+    background: transparent;
+    overflow: auto;
+    font-family: inherit;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.calamity img {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 100px;
+    height: auto;
+}
+
+.status-bar {
+    height: auto;
+    font-family: inherit;
+    color: var(--accent-color);
+    width: 100px;
+
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.bounce {
+    animation: bounce 0.5s ease;
+}
