@@ -101,10 +101,10 @@ React 19, TypeScript 6, Vite 8, Tauri 2.
   📖 [You Might Not Need an Effect → "Updating state based on props or state"](https://react.dev/learn/you-might-not-need-an-effect)
 - [ x] Layout: the editor fills the window and the status bar stays at the bottom. Use a flexbox column at full viewport height. Remove the textarea's border, outline, and resize handle.
   📖 [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-- [] Theme: define your colors (background, text, muted text, accent) as CSS custom properties on `:root`, using a dark Obsidian-like palette.
+- [x] Theme: define your colors (background, text, muted text, accent) as CSS custom properties on `:root`, using a dark Obsidian-like palette.
   📖 [Using CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties)
-- [ ] Readability: limit the text column to about `70ch` wide, center it, and give it a comfortable line height. This is Obsidian's "readable line length" setting.
-- [ ] Add `autoFocus` and a placeholder, so you can start typing as soon as the app opens.
+- [x ] Readability: limit the text column to about `70ch` wide, center it, and give it a comfortable line height. This is Obsidian's "readable line length" setting.
+- [ x] Add `autoFocus` and a placeholder, so you can start typing as soon as the app opens.
 
 **Done when:** The app opens, you can type right away, and the counts update live. Nothing from the template is left.
 
@@ -118,13 +118,13 @@ React 19, TypeScript 6, Vite 8, Tauri 2.
 
 **Goal:** Your text survives a restart, it saves itself while you type, and you can save with **Cmd+S**.
 
-- [ ] Read the effects and refs lessons. Pay extra attention to cleanup functions.
+- [ x] Read the effects and refs lessons. Pay extra attention to cleanup functions.
   📖 [Synchronizing with Effects](https://react.dev/learn/synchronizing-with-effects), [Lifecycle of Reactive Effects](https://react.dev/learn/lifecycle-of-reactive-effects), [Referencing Values with Refs](https://react.dev/learn/referencing-values-with-refs), [Reusing Logic with Custom Hooks](https://react.dev/learn/reusing-logic-with-custom-hooks)
-- [ ] Read why effects run **twice** in development. Your `main.tsx` uses `<React.StrictMode>`, so you'll see this happen.
+- [ x] Read why effects run **twice** in development. Your `main.tsx` uses `<React.StrictMode>`, so you'll see this happen.
   📖 [StrictMode](https://react.dev/reference/react/StrictMode)
-- [ ] Create `src/notes/storage.ts` with `saveNote(note)` and `loadNote(id)`, backed by `localStorage` for now. **Make them `async` and return Promises**, even though `localStorage` is synchronous. In Phase 4 you'll replace their insides with Rust calls, and no component should need to change.
+- [x ] Create `src/notes/storage.ts` with `saveNote(note)` and `loadNote(id)`, backed by `localStorage` for now. **Make them `async` and return Promises**, even though `localStorage` is synchronous. In Phase 4 you'll replace their insides with Rust calls, and no component should need to change.
   📖 [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON)
-- [ ] Load on startup. Remember the id of the last open note, and load that note once when `App` mounts. If nothing is saved yet, create a new note. While loading, `App`'s state is `Note | null`, so render something sensible for the `null` case.
+- [x ] Load on startup. Remember the id of the last open note, and load that note once when `App` mounts. If nothing is saved yet, create a new note. While loading, `App`'s state is `Note | null`, so render something sensible for the `null` case.
   📖 [Conditional Rendering](https://react.dev/learn/conditional-rendering)
 - [ ] Write a `useDebounce(value, delayMs)` custom hook in `src/hooks/`. It should use an effect, `setTimeout`, and a cleanup that calls `clearTimeout`.
   📖 [setTimeout](https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout)
