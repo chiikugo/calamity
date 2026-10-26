@@ -1,23 +1,44 @@
-import { createNote, } from "./notes/noteUtils.ts"
-import StatusBar from "./components/StatusBar"
-import { useState } from "react";
-import "./Basepad.css"
+import { createNote, } from "./notes/noteUtils.ts";
+import { Note } from "./notes/types";
+import StatusBar from "./components/StatusBar";
+import { useState, useEffect } from "react";
+import "./Basepad.css";
 import calamityBase from "./assets/calamity_base.png";
 import calamitySpeak from "./assets/calamity_talk.png";
-import { loadNote, saveNote } from "./notes/storage.ts";
+import { loadNote, saveNote, getLastNoteId } from "./notes/storage.ts";
 
 function Basepad() {
 
     const [content, setContent] = useState("");
     const [hovered, setHovered] = useState(false);
 
-    const noteOne = createNote();
-    const callNoteOne = loadNote(noteOne.id);
+    const [currentNote, setCurrentNote] = useState<Note | null>(null);
 
 
+
+
+    useEffect(() => {
+
+        async function loadNoteStorage() {
+            const note = await getLastNoteId();
+            setCurrentNote(note);
+
+
+        };
+
+        loadNoteStorage();
+
+    }, [])
+
+    if (currentNote === null) {
+        return <div>flapping wings...</div>
+    }
 
 
     return (
+
+
+
         <div className="container">
             <textarea className="textareaone" autoFocus value={content} onChange={(e) => setContent(e.target.value)}
                 placeholder="you can type...x" />
@@ -37,6 +58,7 @@ function Basepad() {
         </div>
 
     )
+
 
 }
 
