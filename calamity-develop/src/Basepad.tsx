@@ -20,8 +20,11 @@ function Basepad() {
     useEffect(() => {
 
         async function loadNoteStorage() {
-            const note = await getLastNoteId();
-            setCurrentNote(note);
+            const lastNote = await getLastNoteId();
+            const current = lastNote ? await loadNote(lastNote) : null;
+            const active = current ?? createNote();
+            setCurrentNote(active);
+            setContent(active.content);
 
 
         };
