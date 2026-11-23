@@ -126,9 +126,9 @@ React 19, TypeScript 6, Vite 8, Tauri 2.
   📖 [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON)
 - [x ] Load on startup. Remember the id of the last open note, and load that note once when `App` mounts. If nothing is saved yet, create a new note. While loading, `App`'s state is `Note | null`, so render something sensible for the `null` case.
   📖 [Conditional Rendering](https://react.dev/learn/conditional-rendering)
-- [ ] Write a `useDebounce(value, delayMs)` custom hook in `src/hooks/`. It should use an effect, `setTimeout`, and a cleanup that calls `clearTimeout`.
+- [ x] Write a `useDebounce(value, delayMs)` custom hook in `src/hooks/`. It should use an effect, `setTimeout`, and a cleanup that calls `clearTimeout`.
   📖 [setTimeout](https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout)
-- [ ] Autosave: when the debounced content changes, call `saveNote`, track the progress in a `SaveStatus` state, and show "Saving…", "Saved", or "Error" in the `StatusBar`. Also work out why you shouldn't save right after the initial load, and prevent it.
+- [ x] Autosave: when the debounced content changes, call `saveNote`, track the progress in a `SaveStatus` state, and show "Saving…", "Saved", or "Error" in the `StatusBar`. Also work out why you shouldn't save right after the initial load, and prevent it.
 - [ ] Write a `useHotkey` hook. In an effect, add a `keydown` listener to `window`, and remove it in the cleanup. Use it so **Cmd+S** saves immediately, and call `preventDefault()`. Store the latest handler in a `useRef` so the listener doesn't have to be re-added on every render.
   📖 [keydown event](https://developer.mozilla.org/en-US/docs/Web/API/Element/keydown_event), [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/metaKey)
 - [ ] Make the native window title follow the note's first line with `getCurrentWindow().setTitle(...)`. This is your **first permission**: if the console shows a "not allowed" error, find the matching permission in the core permissions list and add it to `capabilities/default.json`.
